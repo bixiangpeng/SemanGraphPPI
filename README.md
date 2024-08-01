@@ -1,1 +1,1 @@
-# HHFS-PPI
+# SemanGraphPPI
