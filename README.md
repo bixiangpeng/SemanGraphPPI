@@ -78,7 +78,7 @@ edge graph, and enhances the function representation of *under-labeled* proteins
 
    ```
   
-  Here is the detailed introduction of the optional parameters when running `my_main.py`:
+  Here is the detailed introduction of the optional parameters when running `main_training.py`:
    ```text
     --datasetname: The dataset name, specifying the dataset used for model training.
     --hidden_dim: The dimension of node embedding in hierarchical knowledge graph.
