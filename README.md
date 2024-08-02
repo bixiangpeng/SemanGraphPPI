@@ -28,7 +28,7 @@ edge graph, and enhances the function representation of *under-labeled* proteins
 
 * ### Configure the environment manually
 
-   Create and activate virtual env: `conda create -n SemanGraphPPI python=3.8 ` and `conda activate SSPPI`
+   Create and activate virtual env: `conda create -n SemanGraphPPI python=3.8 ` and `conda activate SemanGraphPPI`
    
    Install specified version of pytorch: ` conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`
    
@@ -42,16 +42,27 @@ edge graph, and enhances the function representation of *under-labeled* proteins
 * ### Data preparation
   There are three benchmark datasets were adopted in this project, including `DIP S. cerevisiae`, `STRING S. cerevisiae`, and `STRING H. sapiens`.
 
-   1. __Download processed data__
-   
-      The data file (`data.zip`) of these three datasets can be downloaded from this [link](https://pan.baidu.com/s/1KI4DrDVXInQaM5Wv1_0NSw?pwd=6shz). Uncompress this file to get a 'data' folder containing all the original data and processed data.
-      
-      🌳 Replacing the original 'data' folder by this new folder and then you can re-train or test our proposed model on Yeast, Multi-species or Multi-class.  
-      
-   3. __Customize your data__
-      
-      You can reprocess data or customize your own data by executing the following command：`python data_process.py`
-      
+  🌳 To facilitate understanding, the following is an explanation of the `data` file directory:
+    ```text
+       >  data
+          ├── Annotation_KG               - A folder for annotation knowledge graph data.           
+          │   ├── BP_subgraph.pkl             - A file for BP(Biological Process) knowledge subgraph.
+          │   ├── MF_subgraph.pkl             - A file for MF(Molecular Function) knowledge subgraph.
+          │   └── CC_subgraph.pkl             - A file for CC(Cellular Component) knowledge subgraph.
+          ├── DIP_S.cerevisiae            - A folder for DIP S. cerevisiae dataset.
+          │   ├── train.tsv                   - A TSV file for training dataset. 
+          │   ├── test.tsv                    - A TSV file for test dataset. 
+          │   ├── Interaction_KG              - A folder for interaction knowledge graph data.
+          │       ├── IKG_edge.pkl                - A pkl file recording the edges in interaction knowledge graph.
+          │       ├── edge_index_map_dict.pkl     - A pkl file recording the index of interaction edges in interaction knowledge graph.
+          │       ├── index_map_dict.pkl          - A pkl file recording the index of protein nodes in interaction knowledge graph.
+          │       ├── annotation_index_map.pkl    
+          │       └── annotation_batch.pkl        
+          ├── STRING_H.sapiens            - A folder for STRING H. sapiens dataset.
+          └── STRING_S.cerevisiae         - A folder for STRING S. cerevisiae dataset.
+
+   ```
+
 
 * ### Training
   After processing the data, you can retrain the model from scratch with the following command:
