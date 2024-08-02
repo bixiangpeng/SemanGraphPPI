@@ -65,30 +65,31 @@ edge graph, and enhances the function representation of *under-labeled* proteins
 
 
 * ### Training
-  After processing the data, you can retrain the model from scratch with the following command:
+  You can retrain the model from scratch with the following command:
   ```text
-  For Yeast dataset:
-    python my_main.py --datasetname yeast --output_dim 1
+  For `DIP S. cerevisiae` dataset:
+    python main_training.py --datasetname DIP_S.cerevisiae --super_ratio 0.2 --layers 8 --hidden_dim 64
 
-  For Multi-species dataset:
-    python my_main.py --datasetname multi_species --output_dim 1 --identity any
+  For `STRING H. sapiens` dataset:
+    python main_training.py --datasetname STRING_H.sapiens --super_ratio 0.2 --layers 8 --hidden_dim 64
 
-  For Multi-class dataset:
-    python my_main.py --datasetname multi_class --output_dim 7  
+  For `STRING S. cerevisiae` dataset:
+    python main_training.py --datasetname STRING_S.cerevisiae --super_ratio 0.2 --layers 8 --hidden_dim 64
 
    ```
   
   Here is the detailed introduction of the optional parameters when running `my_main.py`:
    ```text
     --datasetname: The dataset name, specifying the dataset used for model training.
-    --output_dim: The parameter for specifying the number of PPI categories in the dataset.
-    --identity: The threshold of identity, specifying the multi-species dataset under this sequence identity.
+    --hidden_dim: The dimension of node embedding in hierarchical knowledge graph.
+    --layers: The hop of HetSemGNN in semantic encoder.
+    --super_ratio: The ratio of super-node used to generate graph context vector.
     --device_id: The device, specifying the GPU device number used for training.
     --batch_size: The batch size, specifying the number of samples in each training batch.
     --epochs: The number of epochs, specifying the number of iterations for training the model on the entire dataset.
     --lr: The learning rate, controlling the rate at which model parameters are updated.
     --num_workers: This parameter is an optional value in the Dataloader, and when its value is greater than 0, it enables multiprocessing for data processing.
-    --rst_path: The parameter for specifying the file saving path.  ```
+   ```
 
 * ### Pretrained models
 
@@ -96,20 +97,20 @@ edge graph, and enhances the function representation of *under-labeled* proteins
 <a name="pretrained-models"></a>
    | Datasets | Pre-trained models          | Description |
    |:-----------:|:-----------------------------:|:--------------|
-   | Yeast    | [model](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/yeast/model.pkl) | The pretrained model parameters on the Yeast. |
-   | Multi-species     | [model_01](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/multi_species/model_01.pkl) &nbsp; , &nbsp; [model_10](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/multi_species/model_10.pkl) &nbsp; , &nbsp; [model_25](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/multi_species/model_25.pkl) &nbsp; , &nbsp; [model_40](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/multi_species/model_40.pkl)  &nbsp; , &nbsp; [model_any](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/multi_species/model_any.pkl)      | The Pretrained model parameters on the Multi-species under different sequence identities. |
-   | Multi-class    | [model](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/multi_class/model.pkl)   | The pretrained model parameters on the Multi-class dataset. |
+   | DIP_S.cerevisiae    | [model](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/DIP_S.cerevisiae/pretrained_model.pkl) | The pretrained model parameters on the DIP S. cerevisiae dataset. |
+   | STRING_S.cerevisiae     | [model_01](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/STRING_S.cerevisiae/pretrained_model.pkl) | The Pretrained model parameters on the STRING S. cerevisiae dataset. |
+   | STRING_H.sapiens    | [model](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/STRING_H.sapiens/pretrained_model.pkl)   | The pretrained model parameters on the STRING H. sapiens dataset. |
   
    Based on these pre-trained models, you can perform PPI predictions by simply running the following command:
    ```text
-    For Yeast dataset:
-      python inference.py --datasetname yeast --output_dim 1
+    For DIP S. cerevisiae dataset:
+      python inference.py --datasetname DIP_S.cerevisiae --super_ratio 0.2 --layers 8 --hidden_dim 64
   
-    For Multi-species dataset:
-      python inference.py --datasetname multi_species --output_dim 1 --identity any
+    For STRING S. cerevisiae dataset:
+      python inference.py --datasetname STRING_S.cerevisiae --super_ratio 0.2 --layers 8 --hidden_dim 64
   
-    For Multi-class dataset:
-      python inference.py --datasetname multi_class --output_dim 7  
+    For STRING H. sapiens dataset:
+      python inference.py --datasetname STRING_H.sapiens --super_ratio 0.2 --layers 8 --hidden_dim 64
 
    ```
 
