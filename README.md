@@ -98,7 +98,7 @@ edge graph, and enhances the function representation of *under-labeled* proteins
    | Datasets | Pre-trained models          | Description |
    |:-----------:|:-----------------------------:|:--------------|
    | DIP_S.cerevisiae    | [model](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/DIP_S.cerevisiae/pretrained_model.pkl) | The pretrained model parameters on the DIP S. cerevisiae dataset. |
-   | STRING_S.cerevisiae     | [model_01](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/STRING_S.cerevisiae/pretrained_model.pkl) | The Pretrained model parameters on the STRING S. cerevisiae dataset. |
+   | STRING_S.cerevisiae     | [model](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/STRING_S.cerevisiae/pretrained_model.pkl) | The Pretrained model parameters on the STRING S. cerevisiae dataset. |
    | STRING_H.sapiens    | [model](https://github.com/bixiangpeng/SSPPI/blob/main/model_pkl/STRING_H.sapiens/pretrained_model.pkl)   | The pretrained model parameters on the STRING H. sapiens dataset. |
   
    Based on these pre-trained models, you can perform PPI predictions by simply running the following command:
