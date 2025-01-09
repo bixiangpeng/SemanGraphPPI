@@ -1,4 +1,4 @@
-# SemanGraphPPI （The content is being continuously updated ...）
+# SemanGraphPPI
 ---
 A repo for "Protein Interaction Pattern Recognition Using Heterogeneous Semantics Mining and Hierarchical Graph Representation".
 
