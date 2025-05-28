@@ -1,5 +1,6 @@
 ### Description
 `main_training_with_random_seed.py`: The dataset in this script partitioned based on a random seed for reproducibility.
+
 `pretrained_model.pkl`: This file contains the model weights of the trained semanGraphPPI with `main_training_with_random_seed.py`.
 
 ### Usage
